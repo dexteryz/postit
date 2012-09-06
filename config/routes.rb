@@ -1,9 +1,13 @@
 Postit::Application.routes.draw do
   
   root to: 'posts#index'
-  resources :comments
 
-  resources :posts
+  resources :posts do
+      resources :comments
+      member do 
+        get 'upvote'
+      end
+  end
 
   resources :users
 

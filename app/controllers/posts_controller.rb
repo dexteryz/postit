@@ -80,4 +80,14 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @post = Post.find(params[:id])
+    if @post.upvotes.nil? 
+      @post.upvotes = 0
+    end
+    @post.upvotes = @post.upvotes + 1
+    @post.save
+    redirect_to(root_path)
+  end
 end
