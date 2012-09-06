@@ -1,4 +1,8 @@
 Postit::Application.routes.draw do
+  
+  root to: 'posts#index'
+  resources :comments
+
   resources :posts
 
   resources :users

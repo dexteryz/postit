@@ -1,25 +1,32 @@
-<h1>Listing posts</h1>
+
+<h1><%= link_to 'New Post', new_post_path %></h1>
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Url</th>
+    <th></th>
+    <th>Title</th>
+    <th>Submitted by</th>
+    <th>Comments</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
+<% counter = 1 %>
 <% @posts.each do |post| %>
   <tr>
-    <td><%= post.user_id %></td>
-    <td><%= post.url %></td>
-    <td><%= link_to 'Show', post %></td>
+    <td> <%= "#{counter}." %></td>
+    <td> <%= link_to(post.title, fix_url(post.url)) %></td>
+    <td><%=  "submitted by #{display_name(post.user)}" %> </td>
+    <td> Comments go here </td>
+
+    <!---- <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><% link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><% counter += 1 %></td> ----!>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
