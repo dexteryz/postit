@@ -6,6 +6,7 @@ Postit::Application.routes.draw do
       resources :comments
       member do 
         get 'upvote'
+        get 'downvote'
       end
   end
 

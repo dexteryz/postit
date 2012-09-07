@@ -1,11 +1,9 @@
 
-<h1><%= link_to 'New Post', new_post_path %></h1>
-
 <table>
-  <tr>
-    <th>Votes</th>
-    <th></th>
-    <th>Title</th>
+  <tr id="headers">
+    <th id="votes">Votes</th>
+    <th id="counter"></th>
+    <th id="titles">Title</th>
     <th>Submitted by</th>
     <th>Comments</th>
     <th></th>
@@ -16,11 +14,11 @@
 <% counter = 1 %>
 <% @posts.each do |post| %>
   <tr>
-    <td> <%= link_to "+1 #{post.upvotes}", upvote_post_path(post) %></td>
-    <td> <%= "#{counter}." %></td>
-    <td> <%= link_to(post.title, fix_url(post.url)) %></td>
+    <td id="votes"> <%= link_to "Upvote", upvote_post_path(post) %> | <%= link_to "Downvote", downvote_post_path(post) %> | <%=number_with_precision post.upvotes, :precision => 0 %> </td>
+    <td id="counter"> <%= "#{counter}." %></td>
+    <td id="titles"> <%= link_to(post.title, fix_url(post.url)) %></td>
     <td><%=  "submitted by #{display_name(post.user)}" %> </td>
-    <td> <%= link_to post.comments.size, post_comments_path(post) %> </td>
+    <td id="comments"> <%= link_to post.comments.size, post_comments_path(post) %> </td>
 
     <!---- <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>

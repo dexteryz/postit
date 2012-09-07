@@ -86,7 +86,17 @@ class PostsController < ApplicationController
     if @post.upvotes.nil? 
       @post.upvotes = 0
     end
-    @post.upvotes = @post.upvotes + 1
+    @post.upvotes = @post.upvotes += 1
+    @post.save
+    redirect_to(root_path)
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    if @post.upvotes.nil? 
+      @post.upvotes = 0
+    end
+    @post.upvotes = @post.upvotes -= 1
     @post.save
     redirect_to(root_path)
   end
