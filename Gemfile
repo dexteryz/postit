@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
@@ -38,7 +37,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
-=======
+
 source :gemcutter
 
 gem "sinatra"
@@ -46,4 +45,3 @@ gem "koala"
 gem "json"
 gem "httparty"
 gem "thin"
->>>>>>> dd098e945e905c67ac3411dd395d6653982e7011
