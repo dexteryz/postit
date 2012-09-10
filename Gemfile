@@ -8,10 +8,6 @@ gem 'rails', '3.2.8'
 # gem 'sqlite3'
 
 gem 'sqlite3'
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of debdfa8... fixed gemfile
 
 # Gems used only for assets and not required
 # in production environments by default.
