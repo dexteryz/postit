@@ -20,14 +20,14 @@
     <%= f.text_field :url %>
   </div>
   <div class="hidden">
-    <%= f.label :upvotes %>
-    <%= f.text_field :upvotes %>
+    <%= f.label :votes %>
+    <%= f.text_field :votes %>
   </div>
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.select("user_id", User.all.collect {|u| [ u.name, u.id ] }, {:include_blank => 'None'}) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Submit', :class => 'btn' %>
   </div>
 <% end %>

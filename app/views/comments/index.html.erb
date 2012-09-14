@@ -16,6 +16,6 @@ Add a comment:
 		<br />
 		<%= f.select :user_id, User.all.collect{|u| [u.name, u.id]} %>
 		<br />
-		<%= f.submit "Add a Comment" %>
+		<%= f.submit "Add a Comment" , :class => 'btn' %>
 	<% end %>
 </p>

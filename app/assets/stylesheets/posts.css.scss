@@ -2,24 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-tr {
-	padding: 0 0 0 10px
-}
 
-#headers {
+
+#heading {
 	border-bottom:2px solid black
 }
 
-#votes {
-	padding: 0 20px 0 0 
-}
-
-#counter {
-	padding: 0 10px 0 0 
-}
-
-#titles {
-	padding: 0 20px 0 0
+table.table td {
+	vertical-align:middle
 }
 
 #comments {

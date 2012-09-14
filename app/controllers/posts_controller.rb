@@ -41,6 +41,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    @post.votes = 0
 
     respond_to do |format|
       if @post.save
@@ -83,20 +84,20 @@ class PostsController < ApplicationController
 
   def upvote
     @post = Post.find(params[:id])
-    if @post.upvotes.nil? 
-      @post.upvotes = 0
+    if @post.votes.nil? 
+      @post.votes = 0
     end
-    @post.upvotes = @post.upvotes += 1
+    @post.votes = @post.votes += 1
     @post.save
     redirect_to(root_path)
   end
 
   def downvote
     @post = Post.find(params[:id])
-    if @post.upvotes.nil? 
-      @post.upvotes = 0
+    if @post.votes.nil? 
+      @post.votes = 0
     end
-    @post.upvotes = @post.upvotes -= 1
+    @post.votes = @post.votes -= 1
     @post.save
     redirect_to(root_path)
   end
