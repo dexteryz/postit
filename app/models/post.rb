@@ -5,4 +5,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   has_many :votes
+
+  def total_votes
+      self.votes.where(votes: true).size - self.votes.where(votes: false).size
+  end
 end

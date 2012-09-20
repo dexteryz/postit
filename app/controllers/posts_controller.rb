@@ -81,24 +81,4 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def upvote
-    @post = Post.find(params[:id])
-    if @post.votes.nil? 
-      @post.votes = 0
-    end
-    @post.votes = @post.votes += 1
-    @post.save
-    redirect_to(root_path)
-  end
-
-  def downvote
-    @post = Post.find(params[:id])
-    if @post.votes.nil? 
-      @post.votes = 0
-    end
-    @post.votes = @post.votes -= 1
-    @post.save
-    redirect_to(root_path)
-  end
 end
