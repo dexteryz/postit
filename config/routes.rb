@@ -4,10 +4,11 @@ Postit::Application.routes.draw do
 
   resources :posts do
       resources :comments
-      member do 
-        get 'upvote'
-        get 'downvote'
-      end
+      resource :votes, only: [:create]
+#      member do 
+#        get 'upvote'
+#        get 'downvote'
+#      end
   end
 
   resources :users

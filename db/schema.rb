@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906205114) do
+ActiveRecord::Schema.define(:version => 20120920075526) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -21,8 +21,14 @@ ActiveRecord::Schema.define(:version => 20120906205114) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "posts" because of following StandardError
-#   Unknown type 'downvotes' for column 'upvotes'
+  create_table "posts", :force => true do |t|
+    t.decimal  "user_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.decimal  "votes"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -32,10 +38,8 @@ ActiveRecord::Schema.define(:version => 20120906205114) do
   end
 
   create_table "votes", :force => true do |t|
+    t.boolean  "votes"
     t.integer  "post_id"
-    t.integer  "user_id"
-    t.integer  "upvote"
-    t.integer  "downvote"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
