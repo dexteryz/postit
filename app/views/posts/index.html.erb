@@ -19,7 +19,7 @@
     <tr>
         <td id="count"> <%= "#{counter}." %></td>
         <td> 
-            <%= link_to post_votes_path(post, direction: 'up'), method: 'post'  do %> 
+            <%= link_to post_votes_path(post, direction: 'up'), method: 'post', remote: true  do %> 
             <i class="icon-arrow-up"></i>
             <% end %>
             <br/> 
@@ -27,7 +27,7 @@
             <%= "(#{post.total_votes})" %>
             </span>
             <br/>
-            <%= link_to post_votes_path(post, direction: 'down'), method: 'post' do %>
+            <%= link_to post_votes_path(post, direction: 'down'), method: 'post', remote: true do %>
             <i class="icon-arrow-down"></i>
             <% end %> 
             </td>
