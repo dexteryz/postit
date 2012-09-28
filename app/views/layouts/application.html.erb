@@ -30,11 +30,14 @@
           </a>
           <a class="brand" href="<%= root_path %>">Postit</a>
           <div class="container nav-collapse">
-            <ul class="nav">
-              <!--<li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>-->
+            <p class="navbar-text pull-right">
+               <% if logged_in? %>
+              <%= "Logged in as #{current_user.name}" %>
+              (<%= link_to 'logout', logout_path, :class => 'navbar-link' %>)
+            <% else %>
+              <%= link_to "Log in", login_path, :class => 'navbar-link' %>
+            <% end %>
+            </p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -44,6 +47,8 @@
       <div class="content">
         <div class="row">
            <div class="span9">
+            <br/>
+
            	<p id="notice"><%= notice %></p>
               <%= yield %>
             </div>

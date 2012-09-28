@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  # GET /comments
-  # GET /comments.json
+  before_filter :require_login, only: [:create]
+
   def index
     @post = Post.find(params[:post_id]) # allows you to use post_id, go into db, look up post, and set it as instance variable, then can iterate through its comments
   end

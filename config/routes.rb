@@ -2,6 +2,10 @@ Postit::Application.routes.draw do
   
   root to: 'posts#index'
 
+  get 'login', to: "sessions#new"
+  get 'logout', to: "sessions#destroy"
+  post 'login', to: "sessions#create"
+
   resources :posts do
       resources :comments
       resource :votes, only: [:create]
