@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id]) # gets the post that was created
     @comment = Comment.new(params[:comment]) # params comment is going to return the inner hash, the method Comment.create expects the hash
+    @comment.user_id = current_user.id
     @comment.post_id = @post.id
 
     respond_to do |format|

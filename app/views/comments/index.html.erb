@@ -1,5 +1,5 @@
 
-This post has <%= @post.comments.size %> comments!
+This post has <%= @post.comments.size %> comments.
 
 <p>
 	<% @post.comments.each do |comment| %>
@@ -9,13 +9,13 @@ This post has <%= @post.comments.size %> comments!
 	<% end %>
 </p>
 
+<% if logged_in? %>
 Add a comment:
 <p>
 	<%= form_for(Comment.new, url: post_comments_path(@post)) do |f| %>
 		<%= f.text_area :body %>
 		<br />
-		<%= f.select :user_id, User.all.collect{|u| [u.name, u.id]} %>
-		<br />
 		<%= f.submit "Add a Comment" , :class => 'btn' %>
 	<% end %>
 </p>
+<% end %>

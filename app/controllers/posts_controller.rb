@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :require_login, except: [:index]
   # GET /posts
   # GET /posts.json
   def index
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-    @post.votes = 0
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save

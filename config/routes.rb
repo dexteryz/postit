@@ -5,7 +5,9 @@ Postit::Application.routes.draw do
   get 'login', to: "sessions#new"
   get 'logout', to: "sessions#destroy"
   post 'login', to: "sessions#create"
+  get 'register', to: "users#new", as: "register"
 
+  resources :users, only: [:show, :new, :edit, :create, :update]
   resources :posts do
       resources :comments
       resource :votes, only: [:create]
@@ -14,9 +16,6 @@ Postit::Application.routes.draw do
 #        get 'downvote'
 #      end
   end
-
-  resources :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

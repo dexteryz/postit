@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+	before_filter :require_login
+
 	def create
 		@post = Post.find(params[:post_id])
 		if params[:direction] == 'up'
